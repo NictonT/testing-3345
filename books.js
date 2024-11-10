@@ -42,17 +42,27 @@ function loadAnnouncements() {
         complete: (results) => {
             state.allAnnouncements = results.data
                 .filter(announcement => announcement.title)
-                .sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date, newest first
-            
-            state.filteredAnnouncements = [...state.allAnnouncements];
-            displayAnnouncements();
-            showLoading(false);
-        },
-        error: (error) => {
-            console.error('Error loading announcements:', error);
-            showError('Failed to load announcements. Please try again later.');
-            showLoading(false);
-        }
+                .sort((a, b) => {
+    // Sort by date first (closest dates come first)
+    const now = new Date();
+    const dateA = new Date(a.date || '');
+    const dateB = new Date(b.date || '');
+    const diffA = Math.abs(now - dateA);
+    const diffB = Math.abs(now - dateB);
+    if (diffA !== diffB) return diffA - diffB;
+    
+    // Then sort by title
+    return (a['title'] || '').localeCompare(b['title'] || '');
+});
+state.filteredAnnouncements = [...state.allAnnouncements];
+displayAnnouncements();
+showLoading(false);
+},
+error: (error) => {
+    console.error('Error loading announcements:', error);
+    showError('Failed to load announcements. Please try again later.');
+    showLoading(false);
+}
     });
 }
 
