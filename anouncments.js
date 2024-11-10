@@ -1,7 +1,7 @@
 // Configuration
 const CONFIG = {
     // CSV file link for announcements
-    csvUrl: 'YOUR_ANNOUNCEMENTS_CSV_URL_HERE',
+    csvUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRejUBQCi2XvKxDyrffK2jLZ3BCFBP0D2gCJ17CgChmvaf4GQ1-oACta3DzmOQhdOtwg57ExSVUWMGs/pub?output=csv',
     announcementsPerPage: 10
 };
 
