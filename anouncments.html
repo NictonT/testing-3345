@@ -3,7 +3,7 @@
 <head>
     <link rel="icon" href="photos/logo/logo.png" type="image/png">
     <meta charset="UTF-8">
-    <title>Kerkuk Kitabevi - Books</title>
+    <title>Kerkuk Kitabevi - Announcements</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Papa Parse -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-    <!-- LazySizes -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -35,46 +33,27 @@
                         <a class="nav-link" href="./">Home</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link active" href="./books">Books</a>
+                        <a class="nav-link" href="./books">Books</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active" href="./announcements">Announcements</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Books Section -->
-    <section class="books-section py-5">
+    <!-- Announcements Section -->
+    <section class="announcements-section py-5">
         <div class="container">
-            <!-- Search and Filters -->
+            <!-- Search Bar -->
             <div class="row mb-4">
-                <div class="col-md-8 mb-3">
+                <div class="col-md-8 mx-auto">
                     <div class="search-box position-relative">
-                        <input type="text" class="form-control" id="searchInput" placeholder="Search books by name or ISBN...">
+                        <input type="text" class="form-control form-control-lg shadow-sm" 
+                               id="searchInput" 
+                               placeholder="Search announcements...">
                         <i class="fas fa-search position-absolute top-50 end-0 translate-middle-y me-3 text-muted"></i>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="dropdown">
-                        <button class="btn btn-light border w-100 dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-filter me-2"></i>Filter Options
-                        </button>
-                        <div class="dropdown-menu p-3 w-100">
-                            <div class="price-filter mb-3">
-                                <label class="form-label">Price Range (IQD)</label>
-                                <div class="d-flex gap-2">
-                                    <input type="number" id="priceRangeMin" class="form-control" placeholder="Min" min="250" max="50000" step="250" value="250">
-                                    <input type="number" id="priceRangeMax" class="form-control" placeholder="Max" min="250" max="50000" step="250" value="50000">
-                                </div>
-                            </div>
-                            <div class="age-filter mb-3">
-                                <label class="form-label">Age Range</label>
-                                <div class="d-flex gap-2">
-                                    <input type="number" id="ageRangeMin" class="form-control" placeholder="Min" min="10" max="18" value="10">
-                                    <input type="number" id="ageRangeMax" class="form-control" placeholder="Max" min="10" max="18" value="18">
-                                </div>
-                            </div>
-                            <button class="btn btn-primary w-100" id="applyFiltersBtn">Apply Filters</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -84,13 +63,13 @@
 
             <!-- Loading Indicator -->
             <div id="loadingIndicator" class="text-center my-5">
-                <div class="spinner-border" role="status">
+                <div class="spinner-border text-primary" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
 
-            <!-- Books Container -->
-            <div class="row g-4" id="booksContainer"></div>
+            <!-- Announcements Container -->
+            <div id="announcementsContainer"></div>
 
             <!-- Pagination -->
             <nav aria-label="Page navigation" class="mt-4">
@@ -112,6 +91,7 @@
                     <ul class="list-unstyled">
                         <li><a href="./" class="text-white-50">Home</a></li>
                         <li><a href="./books" class="text-white-50">Books</a></li>
+                        <li><a href="./announcements" class="text-white-50">Announcements</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
@@ -128,19 +108,20 @@
                     </div>
                 </div>
             </div>
-           <div class="border-top border-secondary pt-3 text-center">
-               <p class="mb-0">&copy; 2023 Kerkuk Kitabevi. All rights reserved.</p>
-               <p>
-                   <a href="./policy" class="text-white-50">Privacy Policy</a>
-                   |
-                   <a href="./terms" class="text-white-50">Terms of Service</a>
-               </p>
-           </div>
-       </div>
-   </footer>
+            <div class="border-top border-secondary pt-3 text-center">
+                <p class="mb-0">&copy; 2023 Kerkuk Kitabevi. All rights reserved.</p>
+                <p>
+                    <a href="./policy" class="text-white-50">Privacy Policy</a>
+                    |
+                    <a href="./terms" class="text-white-50">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom Script -->
-    <script src="books.js"></script>
+    <script src="announcements.js"></script>
 </body>
 </html>
